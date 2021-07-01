@@ -19,6 +19,7 @@ public class FilmController {
 
     @GetMapping("/api/home")
     public ResponseEntity home() {
+        FilmEntity entity = new FilmEntity("name", "thumbnail", "des", 1, 1, null, 1);
         List<FilmEntity> f = filmService.getAll();
         return ResponseEntity.ok(f);
     }

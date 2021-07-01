@@ -1,6 +1,8 @@
 package com.example.apiandroidfilm.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -35,11 +37,13 @@ public class FilmEntity {
     @Column(name = "url")
     private String url;
 
-    @CreatedDate
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_at")
     private Date createAt;
 
-    @LastModifiedDate
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "update_at")
     private Date updateAt;
 
@@ -50,11 +54,9 @@ public class FilmEntity {
     @JoinColumn(name = "categoryid", insertable = false, updatable = false)
     private CategoryEntity category;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "films")
     private List<DirectorEntity> directors;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "films")
     private List<CastEntity> casts;
 
