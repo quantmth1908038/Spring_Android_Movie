@@ -27,4 +27,9 @@ public class FilmServiceImp implements FilmService {
     public FilmEntity findById(Integer id) {
         return filmRepo.findById(id).get();
     }
+
+    @Override
+    public List<FilmEntity> findAllById(List<Integer> list) {
+        return filmRepo.findAllById(list);
+    }
 }

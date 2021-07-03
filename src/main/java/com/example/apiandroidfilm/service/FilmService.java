@@ -8,4 +8,5 @@ public interface FilmService {
     List<FilmEntity> getAll();
     FilmEntity createFilm(FilmEntity f);
     FilmEntity findById(Integer id);
+    List<FilmEntity> findAllById(List<Integer> list);
 }
