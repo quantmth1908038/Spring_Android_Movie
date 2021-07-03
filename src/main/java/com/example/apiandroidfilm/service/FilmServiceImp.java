@@ -22,4 +22,9 @@ public class FilmServiceImp implements FilmService {
     public FilmEntity createFilm(FilmEntity f) {
         return filmRepo.save(f);
     }
+
+    @Override
+    public FilmEntity findById(Integer id) {
+        return filmRepo.findById(id).get();
+    }
 }

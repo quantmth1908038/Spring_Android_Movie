@@ -8,4 +8,5 @@ import java.util.List;
 public interface CastService {
     List<CastEntity> getAll();
     CastEntity createCast(CastEntity entity);
+    CastEntity findById(int id);;
 }
